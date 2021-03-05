@@ -30,3 +30,17 @@ class StudioForm(FlaskForm):
         validators=[DataRequired(), Length(min=6, max=50)])
     about = TextAreaField('Information About Studio')
     submit = SubmitField('Submit')
+
+class GenreForm(FlaskForm):
+    """Form to create a Genre."""
+    name = StringField('Genre Name',
+        validators=[DataRequired(), Length(min=5, max=50)])
+    submit = SubmitField('Submit')
+
+
+class WatchlistForm(FlaskForm):
+    """Form to create a Watchlist."""
+    name = StringField('Watchlist Name',
+        validators=[DataRequired(), Length(min=3, max=80)])
+    photo_url = StringField('Photo', validators=[URL()])
+    submit = SubmitField('Submit')
