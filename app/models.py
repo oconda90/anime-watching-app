@@ -19,7 +19,7 @@ class Anime(db.Model):
     date = db.Column(db.Date)
 
     # The Studio who animated the anime
-    Studio_id = db.Column(db.Integer, db.ForeignKey('Studio.id'), nullable=False)
+    Studio_id = db.Column(db.Integer, db.ForeignKey('studio.id'), nullable=False)
     Studio = db.relationship('Studio', back_populates='Anime')
 
     # The genres of a Anime can be
@@ -27,8 +27,8 @@ class Anime(db.Model):
         'Genre', secondary='anime_genre', back_populates='Anime')
     
     # What watchlist does this Anime belong to?
-    playlists = db.relationship(
-        'Watchlist', secondary='Anime_in_Watchlist', back_populates='Anime')
+    Watchlists = db.relationship(
+        'Watchlist', secondary='anime_in_Watchlist', back_populates='Anime')
 
     def __str__(self):
         return f'Anime: {self.title}'
@@ -52,7 +52,7 @@ class Genre(db.Model):
     name = db.Column(db.String(80), nullable=False, unique=True)
 
     # The genre a anime belongs to
-    songs = db.relationship(
+    animes = db.relationship(
         'Anime', secondary='anime_genre', back_populates='genres')
 
     def __str__(self):
@@ -62,3 +62,40 @@ anime_genre_table = db.Table('anime_genre',
     db.Column('anime_id', db.Integer, db.ForeignKey('anime.id')),
     db.Column('genre_id', db.Integer, db.ForeignKey('genre.id'))
 )
+
+class Watchlist(db.Model):
+    """Watchlist model."""
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False, unique=True)
+    photo_url = db.Column(URLType)
+    
+    # Which Anime is in this watchlist?
+    animes = db.relationship(
+        'Anime', secondary='anime_in_Watchlist', back_populates='Watchlists')
+
+    # The user who owns the watchlist
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', back_populates='Watchlists')
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+playlist_songs_table = db.Table('anime_in_Watchlist',
+    db.Column('anime_id', db.Integer, db.ForeignKey('anime.id')),
+    db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'))
+)
+
+
+class User(UserMixin, db.Model):
+    """Watchlist model."""
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False, unique=True)
+    name = db.Column(db.String(80), nullable=False)
+    password = db.Column(db.String(400), nullable=False)
+
+    def __repr__(self):
+        return f'User: {self.name}'
+
+    # The watchlists part of User
+    playlists = db.relationship('Watchlist', back_populates='user')
