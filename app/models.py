@@ -98,4 +98,4 @@ class User(UserMixin, db.Model):
         return f'User: {self.name}'
 
     # The watchlists part of User
-    playlists = db.relationship('Watchlist', back_populates='user')
+    Watchlists = db.relationship('Watchlist', back_populates='user')
