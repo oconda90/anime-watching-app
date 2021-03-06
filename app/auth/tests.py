@@ -38,3 +38,35 @@ def create_user():
     user = User(username='test1', name='Test1', password=password_hash)
     db.session.add(user)
     db.session.commit()
+
+#________________________________________________
+# Tests
+#________________________________________________
+
+class AuthTests(TestCase):
+    """Tests for authentication (login & signup)."""
+ 
+    def setUp(self):
+        """Executed prior to each test."""
+        app.config['TESTING'] = True
+        app.config['WTF_CSRF_ENABLED'] = False
+        app.config['DEBUG'] = False
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        self.app = app.test_client()
+        db.drop_all()
+        db.create_all()
+
+    
+    # TEST PASSED
+    def test_signup(self):
+        """Test signup route."""
+        post_data = {
+            'username': 'my-test@gmail.com',
+            'name': 'my-test',
+            'password': 'test12345'
+        }
+        self.app.post('/signup', data = post_data)
+
+        new_user = User.query.filter_by(username = 'me-test@gmail.com')
+        self.assertIsNotNone(new_user)
+    
