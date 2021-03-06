@@ -126,3 +126,18 @@ class AuthTests(TestCase):
 
         response_text = response.get_data(as_text=True)
         self.assertIn("Password doesn&#39;t match. Please try again.", response_text)
+
+    def test_logout(self):
+        """Test logout."""
+        create_user()
+
+        post_data = {
+            'username': 'test1',
+            'name': 'Test1',
+            'password': 'password'
+        }
+        response = self.app.post('/login', data = post_data)
+        response = self.app.get('/logout', follow_redirects = True)
+
+        response_text = response.get_data(as_text=True)
+        self.assertNotIn('You are logged in as me1', response_text)
