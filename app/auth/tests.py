@@ -99,3 +99,30 @@ class AuthTests(TestCase):
         response = self.app.get('/', follow_redirects = True)
         response_text = response.get_data(as_text = True)
     
+    def test_login_nonexistent_user(self):
+        """Test with a non-existent user"""
+        post_data = {
+            'username': 'notreal',
+            'name': 'Notreal',
+            'password': 'notreal2345'
+        }
+        response = self.app.post('/login', data = post_data)
+       
+        response_text = response.get_data(as_text=True)
+        self.assertIn('No user with that username. Please try again.', response_text)
+    
+    
+    
+    def test_login_incorrect_password(self):
+        """Test with incorrect password."""
+        create_user()
+
+        post_data = {
+            'username': 'test1',
+            'name': 'Test1',
+            'password': 'wrong1234'
+        }
+        response = self.app.post('/login', data = post_data)
+
+        response_text = response.get_data(as_text=True)
+        self.assertIn("Password doesn&#39;t match. Please try again.", response_text)
