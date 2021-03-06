@@ -94,3 +94,48 @@ class MainTests(unittest.TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertIn('/login?next=%2Fcreate_anime', response.location)
+    
+     def test_create_studio(self):
+        """Test creating an studio."""
+        create_user()
+        login(self.app, 'test1', 'password')
+
+        post_data = {
+            'name': 'Mappa',
+            'about': 'MAPPA Co., Ltd. is a Japanese animation studio. It was founded on June 14, 2011, by Masao Maruyama, a founder and former producer of Madhouse, and has produced anime works including Kids on the Slope, Terror in Resonance, Yuri!!! on Ice, and In This Corner of the World.'
+        }
+        self.app.post('/create_studio', data = post_data)
+
+        new_studio = Studio.query.filter_by(name='Mappa').one()
+        self.assertIsNotNone(new_studio)
+    
+
+    # TEST PASSED
+    def test_create_genre(self):
+        """Test creating a genre."""
+        create_user()
+        login(self.app, 'test1', 'password')
+
+        post_data = {
+            'name': 'Shounen'
+        }
+        self.app.post('/create_genre', data = post_data)
+
+        new_genre = Genre.query.filter_by(name = 'Shounen').one()
+        self.assertIsNotNone(new_genre)
+    
+    
+    # TEST PASSED
+    def test_create_watchlist(self):
+        """Test creating a watchlist."""
+        create_user()
+        login(self.app, 'test1', 'password')
+
+        post_data = {
+            'name': 'Shounen Anime',
+            'photo_url': 'https://qph.fs.quoracdn.net/main-qimg-c13003a55f4efb7647d972cfcec4fadb'
+        }
+        self.app.post('/create_watchlist', data = post_data)
+
+        new_watchlist = Watchlist.query.filter_by(name = 'Shounen Anime').one()
+        self.assertIsNotNone(new_watchlist)
