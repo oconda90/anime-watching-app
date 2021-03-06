@@ -36,7 +36,7 @@ def profile(username):
 @login_required
 def anime_in_watchlist(id):
     '''Display selected watchlist with all animes from that watchlist'''
-    selected_watchlist = Watchlist.query.filter_by(id=id).one()
+    selected_Watchlist = Watchlist.query.filter_by(id=id).one()
     all_animes = selected_Watchlist.songs
     return render_template('anime_in_watchlist.html',
     all_animes=all_animes)
@@ -62,3 +62,42 @@ def create_anime():
         flash('New anime was created successfully.')
         return redirect(url_for('main.anime_detail', anime_id=new_anime.id))
     return render_template('create_anime.html', form=form)
+
+@main.route('/create_studio', methods=['GET', 'POST'])
+@login_required
+def create_studio():
+    '''Create a Studio Route'''
+    form = StudioForm()
+    if form.validate_on_submit():
+        new_studio = Studio(
+            name=form.name.data,
+            about=form.about.data
+        )
+        db.session.add(new_studio)
+        db.session.commit()
+
+        flash('New studio created successfully.')
+        return redirect(url_for('main.home'))
+    
+    # if form was not valid, or was not submitted yet
+    return render_template('create_studio.html', form=form)
+
+
+@main.route('/create_genre', methods=['GET', 'POST'])
+@login_required
+def create_genre():
+    '''Create a Genre Route'''
+    form = GenreForm()
+    if form.validate_on_submit():
+        new_genre = Genre(
+            name=form.name.data
+        )
+        db.session.add(new_genre)
+        db.session.commit()
+
+        flash('New genre created successfully.')
+        return redirect(url_for('main.home'))
+    
+    # if form was not valid, or was not submitted yet
+    return render_template('create_genre.html', form=form)
+
