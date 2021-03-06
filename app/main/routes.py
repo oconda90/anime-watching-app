@@ -2,9 +2,9 @@
 from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from datetime import date, datetime
-from songs_app.models import Song, Artist, Genre, Playlist, User
-from songs_app.main.forms import SongForm, ArtistForm, GenreForm, PlaylistForm
-from songs_app import bcrypt
+from app.models import Anime, Studio, Genre, Watchlist, User
+from app.main.forms import AnimeForm, StudioForm, GenreForm, WatchlistForm
+from app import bcrypt
 
 # Import app and db from songs_app package so that we can run app
 from app import app, db
