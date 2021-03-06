@@ -57,7 +57,7 @@ class AuthTests(TestCase):
         db.create_all()
 
     
-    # TEST PASSED
+    
     def test_signup(self):
         """Test signup route."""
         post_data = {
@@ -69,4 +69,33 @@ class AuthTests(TestCase):
 
         new_user = User.query.filter_by(username = 'me-test@gmail.com')
         self.assertIsNotNone(new_user)
+
+    def test_signup_existing_user(self):
+        """Test to see if user already exists."""
+        post_data = {
+            'username': 'test@gmail.com',
+            'name': 'Test',
+            'password': 'test12345'
+        }
+        self.app.post('/signup', data = post_data)
+
+        response = self.app.post('/signup', data=post_data)
+        response_text = response.get_data(as_text=True)
+        self.assertIn('That username is taken. Please choose a different one.', response_text)
+    
+    
+    
+    def test_login_correct_password(self):
+        """Test with correct login passowrd."""
+        create_user()
+
+        post_data = {
+            'username': 'test1',
+            'name': 'Test1',
+            'password': 'password1234'
+        }
+        self.app.post('/login', data = post_data)
+
+        response = self.app.get('/', follow_redirects = True)
+        response_text = response.get_data(as_text = True)
     
