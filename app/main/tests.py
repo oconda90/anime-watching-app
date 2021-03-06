@@ -139,3 +139,13 @@ class MainTests(unittest.TestCase):
 
         new_watchlist = Watchlist.query.filter_by(name = 'Shounen Anime').one()
         self.assertIsNotNone(new_watchlist)
+
+    def test_profile_page(self):
+        """Test the profile page."""
+        create_user()
+        login(self.app, 'test1', 'password')
+        db.session.commit()
+
+        response = self.app.get('/profile/test1', follow_redirects=True)
+        response_text = response.get_data(as_text=True)
+        self.assertIn('test1', response_text)
