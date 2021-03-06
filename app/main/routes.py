@@ -101,3 +101,49 @@ def create_genre():
     # if form was not valid, or was not submitted yet
     return render_template('create_genre.html', form=form)
 
+@main.route('/create_watchlist', methods=['GET', 'POST'])
+@login_required
+def create_watchlist():
+    '''Create a Watchlist Route'''
+    form = WatchlistForm()
+    if form.validate_on_submit():
+        new_watchlist = Watchlist(
+            name=form.name.data,
+            photo_url = form.photo_url.data,
+            user = current_user
+        )
+        db.session.add(new_watchlist)
+        db.session.commit()
+
+        flash('New watchlist created successfully.')
+        return redirect(url_for('main.home'))
+    
+    # if form was not valid, or was not submitted yet
+    return render_template('create_watchlist.html', form=form)
+
+
+@main.route('/anime/<anime_id>', methods=['GET', 'POST'])
+@login_required
+def anime_detail(anime_id):
+    '''Shows Details of Anime'''
+    anime = Anime.query.filter_by(id=anime_id).one()
+    form = AnimeForm(obj=anime)
+    
+    # if form was submitted and contained no errors
+    if form.validate_on_submit():
+        anime.title = form.title.data
+        anime.photo_url = form.photo_url.data
+        anime.date = form.date.data
+        anime.artist = form.studio.data
+        anime.genres = form.genres.data
+        anime.playlists = form.watchlists.data
+
+        db.session.commit()
+
+        flash('Anime was updated successfully.')
+        return redirect(url_for('main.anime_detail', anime_id=anime_id))
+
+    return render_template('anime_detail.html', anime=anime, form=form)
+
+
+
