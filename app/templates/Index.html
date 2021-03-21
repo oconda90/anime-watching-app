@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VArify</title>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="static/assets/images/VArifyLogo1.png"/>
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Raleway&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/assets/css/styles.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+
+
+ <!---------------------- SIDEBAR ------------------------>
+ <div id="mySidenav" class="sidenav">
+  <a class="navbar-brand" href="/">
+    <div class="logo-image">
+          <img src="static/assets/images/VArifyLogo1.png" width="100">
+    </div>
+  </a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+  <a class="nav-link" href="search_return.html">SEARCH<span class="sr-only">(current)</span></a>
+  <a class="nav-link" href=".html">F.A.Q<span class="sr-only">(current)</span></a>
+  <a class="nav-link" href="developers.html">DEVELOPERS<span class="sr-only">(current)</span></a>
+</div>
+
+<span class="pl-3 text-info" style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;</span>
+
+
+
+
+
+
+<div id="main">
+<!----------- HEADER -------------->
+  <div class="">
+    <div class="text-center d-flex flex-row justify-content-center align-items-center">
+      <img src="static/assets/images/VarifyLogo1.png" width="100px">
+      <h1 class="display-2 text-info">VArify</h1>
+    </div>
+    <div class="text-center d-flex flex-column justify-content-center align-items-center mb-5">
+        <p class="lead">Who's That Voice?</p>
+        <form class="form-inline">
+          <input class="form-control border-0" name="full-name"  type="text" placeholder="Full Name">
+        
+          <button class="btn btn-success justify-content-center" type="submit">Search</button>
+        </form>
+      </div>
+  </div>
+
+
+
+<div class="content-container">
+
+  <div class="container-fluid">
+
+<!----------- RESULT -------------->
+    <hr>
+    <h3 class="text-center text-success">Search Result</h2>
+    <hr>
+
+    <div id="resultBg" class="d-flex justify-content-center align-items-center">
+      <div data-aos="fade-up" class="card card-custom bg-white border-white border-0" style="width: 25rem;">
+        <div class="card-custom-img" style="background-image: url({{char_image}});"></div>
+        <div class="card-custom-avatar">
+          <img class="img-fluid" src="{{va_img}}"alt="Avatar" />
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <h4 class="card-title text-info">{{full_name}}</h4>
+          <p class="card-text text-muted"> Bio</p>
+          <ul>
+            <li>{{character_list}}<i class="text-muted">- Voice Actor</i></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+<!----------- POPULAR PROFILES -------------->
+    <hr>
+    <h3 class="text-center text-success">Popular Profiles</h2>
+    <hr>
+
+    <div class="row">
+      <div class="col">
+        <div data-aos="fade-right" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/10/Featured-Image-9.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/miyano.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Mamoru Miyano</h4>
+            <p class="card-text text-muted"> Notable Roles</p>
+            <ul>
+              <li>Light Yagami <i class="text-muted">- Death Note</i></li>
+              <li>Death The Kid <i class="text-muted">- Soul Eater</i></li>
+              <li>Shuu Tsukiyama <i class="text-muted">- Tokyo Ghoul</i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div data-aos="fade-up" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://wallpapercave.com/wp/wp4091330.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/kanahana.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Kana Hanazawa</h4>
+            <p class="card-text text-muted">Notable Roles</p>
+            <ul>
+              <li>Nadeko Sengoku <i class="text-muted">- Monogatari Series</i></li>
+              <li>Chiaki Nanami <i class="text-muted">- Danganronpa 2</i></li>
+              <li>Kanade Tachibana <i class="text-muted">- Angel Beats!</i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div data-aos="fade-left" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://i.pinimg.com/originals/7b/2a/99/7b2a99def37280d998abedbf669b733c.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/kamiya.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Hiroshi Kamiya</h4>
+            <p class="card-text text-muted">Notable Roles</p>
+            <ul>
+              <li>Levi Ackerman <i class="text-muted">- Attack on Titan</i></li>
+              <li>Izaya Orihara <i class="text-muted">- Durarara!!</i></li>
+              <li>Yato <i class="text-muted">- Noragami</i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="row pt-5">
+      <div class="col">
+        <div data-aos="fade-right" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://wallpapercave.com/wp/wp2307220.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/rie.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Rie Kugimiya</h4>
+            <p class="card-text text-muted">Notable Roles</p>
+            <ul>
+              <li>Taiga Aisaka <i class="text-muted">- Toradora!</i></li></li>
+              <li>Iori Minase <i class="text-muted">- The iDOLM@STER</i></li></li>
+              <li>Alphonse Elric <i class="text-muted">- Fullmetal Alchemist</i></li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div data-aos="fade-up" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://i.ytimg.com/vi/0_uA9EwmMJk/maxresdefault.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/yuki.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Yuki Kaji</h4>
+            <p class="card-text text-muted">Notable Roles</p>
+            <ul>
+              <li>Shoto Todoroki <i class="text-muted">- My Hero Academia</i></li></li>
+              <li>Eren Jaeger <i class="text-muted">- Attack on Titan</i></li></li>
+              <li>Alibaba <i class="text-muted">- Magi: The Labyrinth of Magic</i></li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div data-aos="fade-left" class="card card-custom bg-white border-white border-0">
+          <div class="card-custom-img" style="background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2015/09/26/809651/3081936760aa8f7de66cb46bf5456778.jpg);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" src="static/assets/images/daisuke.jpg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title text-info">Daisuke Ono</h4>
+            <p class="card-text text-muted">Notable Roles</p>
+            <ul>
+              <li>Jotaro Kujo <i class="text-muted">- JoJo's Bizarre Adventure</i></li></li>
+              <li>Shizuo Heiwajima <i class="text-muted">- Durarara!!</i></li></li>
+              <li>Jyushimatsu <i class="text-muted">- Osomatsu-san</i></li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--SCRIPTS-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+
+ /* JQUERY */
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+/* POPPER */
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+/* JS */
+</script>
+<script src='https://kit.fontawesome.com/a076d05399.js'>
+/* ICON JS */
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+</script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
