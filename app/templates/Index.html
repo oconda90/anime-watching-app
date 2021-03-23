@@ -3,63 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VArify</title>
+  <title>Brushwrks</title>
   <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="static/assets/images/VArifyLogo1.png"/>
+  
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Raleway&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital@1&family=Josefin+Sans:ital,wght@1,300&family=Lato:ital,wght@1,300&display=swap" rel="stylesheet"> 
   <!-- CSS -->
-  <link rel="stylesheet" href="static/assets/css/styles.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="styles.css">
   <!-- BOOTSTRAP -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
 
-
- <!---------------------- SIDEBAR ------------------------>
- <div id="mySidenav" class="sidenav">
-  <a class="navbar-brand" href="/">
-    <div class="logo-image">
-          <img src="static/assets/images/VArifyLogo1.png" width="100">
+    <!---------------------- SIDEBAR ------------------------>
+    <div class="sidebar-container bg-dark d-flex flex-column">
+      <div class="sidebar-logo">
+        <a class="fa fa-paint-brush text-decoration-none" href="index.html"></a>
+        <a class="navbar-brand text-white" href="index.html">Brushwrks</a>
+      </div>
+      <ul class="sidebar-navigation p-0 m-0 position-relative">
+        <li class="header">Navigation</li>
+        <li>
+          <a href="index.html">
+            <i class="fa fa-home" aria-hidden="true"></i> Home
+          </a>
+        </li>
+        <li>
+          <a href="explore.html">
+            <i class="fa fa-compass" aria-hidden="true"></i> Explore
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i> Following
+          </a>
+        </li>
+        <li class="header">Manage</li>
+        <li>
+          <a href="profileEx.html">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-inbox" aria-hidden="true"></i> Inbox
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i> Settings
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted text-center position-fixed mb-1 ml-3">© 2021 Anneka Curry<br>
+        <a href="https://github.com/nekacurry" class="fab fa-github text-decoration-none text-muted"></a>
+      </p>
     </div>
-  </a>
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
-  <a class="nav-link" href="search_return.html">SEARCH<span class="sr-only">(current)</span></a>
-  <a class="nav-link" href=".html">F.A.Q<span class="sr-only">(current)</span></a>
-  <a class="nav-link" href="developers.html">DEVELOPERS<span class="sr-only">(current)</span></a>
-</div>
+  
+  <!-------------------- NAVBAR ------------------------>
+  <nav class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-end">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link disabled" href=" ">Log in</a>
+      <a class="nav-item nav-link text-info align-self-center " href="register.html">Sign up</a>
+    </div>
+  </nav>
 
-<span class="pl-3 text-info" style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776;</span>
+  
+  <div class="content-container">
+
+    <div class="container-fluid">
+  
+     <!------------------------- HEADER ---------------------->
+     <div class="jumbotron jumbotron-fluid text-center d-flex flex-column justify-content-center align-items-center hero-background-img mb-5">
+      <h1 class="display-4">BRUSHWRKS</h1>
+      <p class="lead">Freelance Art Made Easy</p>
+      <form class="form-inline">
+        <input class="form-control border-0" name="query"  type="text" placeholder="Try &quot;Pixel Art&quot;">
+        <button class="btn btn-success justify-content-center" type="submit">Search</button>
+      </form>
+     </div>
 
 
+      <!---------------------- ARTIST SPOTLIGHT ----------------------->
+      <h3>Featured Artists</h3>
+      <hr>
+      <div class="card-deck mb-5">
+
+        <!--------------- ARTIST 1 ----------------->
+        <div class="card">
+          <img src="https://pbs.twimg.com/media/EliVqHMUYAA05VL?format=jpg&name=large" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Henemimi</h5>
+            <div class="mt-0 mb-4">
+              <a class="fab fa-twitter text-decoration-none fa-lg pr-3" href="https://twitter.com/henemimi"></a>
+              <a class="fab fa-instagram text-decoration-none fa-lg pr-3" href="https://www.instagram.com/henemimi_art/"></a>
+              <a class="fab fa-patreon text-decoration-none fa-lg pr-3" href="https://www.patreon.com/henemimi"></a>
+            </div>
+            <p class="card-text">Chicken who likes drawing anime girls</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <a class="text-muted small text-decoration-none" href="">View Profile</a>
+            <a class="text-info fa fa-chevron-right text-decoration-none" href=""></a>
+          </div>
+        </div>
+        
+        <!----------------- ARTIST 2 ----------------->
+        <div class="card">
+          <img src="https://pbs.twimg.com/media/ErDN7ADVgAELzce?format=jpg&name=medium" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Cheesewoo</h5>
+            <div class="mt-0 mb-4">
+              <a class="fab fa-twitter text-decoration-none fa-lg pr-3" href="https://twitter.com/cheesewoo"></a>
+              <a class="fab fa-instagram text-decoration-none fa-lg pr-3" href="https://www.instagram.com/cheese.woo/"></a>
+            </div>
+            <p class="card-text">Digital illustrator and designer from New Zealand.<br></p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <a class="text-muted small text-decoration-none" href="">View Profile</a>
+            <a class="text-info fa fa-chevron-right text-decoration-none" href=""></a>
+          </div>
+        </div>
+
+        <!---------------- ARTIST 3 ---------------->
+        <div class="card">
+          <img src="https://rplmkocomm.weebly.com/uploads/1/3/3/3/133374213/wanko-b_orig.gif" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">RPLMKO</h5>
+            <div class="mt-0 mb-4">
+              <a class="fab fa-twitter text-decoration-none fa-lg pr-3" href="https://twitter.com/Rplmko"></a>
+              <a class="fab fa-deviantart text-decoration-none fa-lg pr-3" href="https://www.deviantart.com/rplmko"></a>
+            </div>
+            <p class="card-text">Hong Kong digital/pixel artist <br> 中/Eng OK </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <a class="text-muted small text-decoration-none" href="">View Profile</a>
+            <a class="text-info fa fa-chevron-right text-decoration-none" href=""></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+     <!------------------ CTA ---------------------->
+     
+     <div class="text-center">
+      <h2 class="display-4 text-info">Join Us!</h2>
+      <p class="lead">Get access to the easiest way to find and promote freelance artwork</p>
+     </div>
+
+     <div class="signup-form">
+      <form class="rounded" method="post">
+        <p class="text-center text-muted">Create your account. It only takes a minute!</p>
+        <div class="form-group">
+          <input type="text" class="form-control" name="first_name" placeholder="First" required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="last_name" placeholder="Last" required="required">
+        </div>
+        <div class="form-group">
+          <input type="username" class="form-control" name="username" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+        <div class="form-group">
+          <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+        </div>
+      </form>
+    </div>
+
+    </div>
+  </div>
+  
 
 
-
-
-<div id="main">
-<!----------- HEADER -------------->
  
 
 
-
-
-
-
-
-
-
-
-
-<!--SCRIPTS-->
+ <!--SCRIPTS-->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-
- /* JQUERY */
+  /* JQUERY */
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 /* POPPER */
@@ -70,31 +208,6 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'>
 /* ICON JS */
 </script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-  }
-</script>
-<script>
-  AOS.init();
-</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
